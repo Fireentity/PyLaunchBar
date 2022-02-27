@@ -29,7 +29,7 @@ Window {
             height: parent.height
             width: parent.width
             cacheBuffer: 10
-            model: list_view_model
+            model: icons_model
             layoutDirection: Qt.LeftToRight
 
             delegate: Component {
