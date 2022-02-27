@@ -42,7 +42,7 @@ Window {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            icon_controller.on_click(command)
+                            icon_controller.on_click(model.command)
                         }
                     }
                 }
