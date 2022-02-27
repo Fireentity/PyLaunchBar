@@ -30,7 +30,7 @@ Window {
             id: list_view
             spacing: 20
             height: parent.height
-            width: MyModel.items.length * 22 + (MyModel.items.length-1)*20
+            width: contentItem.childrenRect.width
             model: icons_model
             orientation: ListView.Horizontal
 
