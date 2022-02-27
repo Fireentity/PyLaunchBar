@@ -17,7 +17,7 @@ class IconController(QObject):
 
     @pyqtSlot(str)
     def on_click(self, command):
-        os.system(command)
+        os.system("(" + command + "& ) && exit")
 
 
 class Roles(IntEnum):
