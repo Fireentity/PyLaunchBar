@@ -26,6 +26,7 @@ Window {
         }
 
         ListView {
+            spacing: 20
             height: parent.height
             width: parent.width
             model: icons_model
