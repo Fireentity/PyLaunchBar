@@ -48,6 +48,8 @@ def start():
     for program in json_data:
         strings.append(user_config_folder_path + "/icons/" + program['icon'])
 
+    print(strings)
+
     # Setting the list of string containing paths to .svg files
     model.setStringList(strings)
 
