@@ -33,7 +33,7 @@ Window {
 
             delegate: Component {
                 Image {
-                    Layout.AlignHCenter: true
+                    anchors.verticalCenter: parent
                     sourceSize.height: 22
                     source: model.icon
                 }
