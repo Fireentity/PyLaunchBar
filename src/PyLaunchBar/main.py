@@ -23,9 +23,10 @@ class IconController(QObject):
 
 class IconsListModel(QAbstractListModel):
 
-    def __init__(self, entries):
+    def __init__(self, config_folder_path, entries):
         super().__init__()
         self.entries = entries
+        self.config_folder_path = config_folder_path
 
     def roleNames(self):
         return {0: QByteArray(b"icon")}
@@ -37,17 +38,21 @@ class IconsListModel(QAbstractListModel):
             return len(self.entries)
 
     def data(self, model_index: QModelIndex, role=None):
-        return self.entries[model_index.row()]['icon']
+        return self.config_folder_path + self.entries[model_index.row()]['icon']
 
 
 def start():
     app = QApplication([])
     view = QQmlApplicationEngine()
 
-    # Getting config file path
-    user_config_file_path = os.path.expanduser("~") + "/.config/PyLaunchBar/config.json"
+    # Initializing config folder path
+    config_folder_path = "/.config/PyLaunchBar"
+
     # Getting config folder path
-    user_config_folder_path = os.path.expanduser("~") + "/.config/PyLaunchBar/"
+    user_config_folder_path = os.path.expanduser("~") + config_folder_path
+
+    # Getting config file path
+    user_config_file_path = user_config_folder_path + "/config.json"
 
     # Check if the config file exists
     if not os.path.exists(user_config_file_path):
@@ -62,7 +67,7 @@ def start():
         json_data = json.load(file)
 
     # Creating the model for the ListView of icons
-    model = IconsListModel(json_data)
+    model = IconsListModel(config_folder_path, json_data)
 
     # Setting QStringListModel() has context property
     view.rootContext().setContextProperty("icons_model", model)
