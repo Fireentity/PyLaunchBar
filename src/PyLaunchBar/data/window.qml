@@ -33,6 +33,7 @@ Window {
             orientation: ListView.Horizontal
 
             delegate: Component {
+                Layout.AlignHCenter: true
                 Image {
                     sourceSize.height: 22
                     source: model.icon
