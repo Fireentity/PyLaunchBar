@@ -1,4 +1,4 @@
-from enum import Enum
+from enum import Enum, IntEnum
 
 from PyQt5 import QtQuick, QtCore, QtQml
 from PyQt5.QtCore import *
@@ -20,7 +20,7 @@ class IconController(QObject):
         os.system(command)
 
 
-class Roles(Enum):
+class Roles(IntEnum):
     ICON = 0,
     COMMAND = 1
 
@@ -44,7 +44,7 @@ class IconsListModel(QAbstractListModel):
     def data(self, model_index: QModelIndex, role=None):
         print(role)
         print(Roles.ICON.value)
-        if role == Roles.ICON.value:
+        if role == Roles.ICON:
             return self.config_folder_path + "/" + self.entries[model_index.row()]['icon']
 
         if role == Roles.COMMAND.value:
