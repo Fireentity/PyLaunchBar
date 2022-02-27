@@ -38,7 +38,7 @@ class IconsListModel(QAbstractListModel):
             return len(self.entries)
 
     def data(self, model_index: QModelIndex, role=None):
-        return self.config_folder_path + self.entries[model_index.row()]['icon']
+        return self.config_folder_path + "/" + self.entries[model_index.row()]['icon']
 
 
 def start():
