@@ -33,7 +33,7 @@ Window {
 
             delegate: Component {
                 Image {
-                    anchors.verticalCenter: parent
+                    anchors.verticalCenter: parent.verticalCenter
                     sourceSize.height: 22
                     source: model.icon
                 }
