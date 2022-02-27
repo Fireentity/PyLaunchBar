@@ -12,13 +12,10 @@ from . import data
 
 
 class IconController(QObject):
-    def __init__(self, command):
-        super().__init__()
-        self.command = command
 
     @pyqtSlot()
-    def on_click(self):
-        os.system(self.command)
+    def on_click(self, command):
+        os.system(command)
 
 
 class IconsListModel(QAbstractListModel):
@@ -74,8 +71,11 @@ def start():
     # Creating the model for the ListView of icons
     model = IconsListModel(user_icons_folder_path, json_data)
 
+    icon_controller = IconController()
+
     # Setting QStringListModel() has context property
     view.rootContext().setContextProperty("icons_model", model)
+    view.rootContext().setContextProperty("icon_controller", icon_controller)
 
     # Loading file manually because of a strange error that attaches /home/lorenzo in front
     # of the path passed as parameter in the method QQmlApplicationEngine::load(url: QUrl)
