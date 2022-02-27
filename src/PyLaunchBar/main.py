@@ -45,9 +45,9 @@ def start():
     view = QQmlApplicationEngine()
 
     # Getting config file path
-    user_config_file_path = os.path.expanduser("~") + "/.config/PyLauncher/config.json"
+    user_config_file_path = os.path.expanduser("~") + "/.config/PyLaunchBar/config.json"
     # Getting config folder path
-    user_config_folder_path = os.path.expanduser("~") + "/.config/PyLauncher/"
+    user_config_folder_path = os.path.expanduser("~") + "/.config/PyLaunchBar/"
 
     # Check if the config file exists
     if not os.path.exists(user_config_file_path):
