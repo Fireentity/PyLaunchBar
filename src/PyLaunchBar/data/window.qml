@@ -35,7 +35,7 @@ Window {
             delegate: Component {
                 Image {
                     sourceSize.height: 22
-                    source: icons_model.icon
+                    source: model.icon
                 }
             }
         }
