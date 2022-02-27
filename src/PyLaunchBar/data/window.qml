@@ -29,7 +29,7 @@ Window {
             height: parent.height
             cacheBuffer: 10
             model: icons_model
-            layoutDirection: Qt.LeftToRight
+            orientation: ListView.Horizontal
 
             delegate: Component {
                 Image {
