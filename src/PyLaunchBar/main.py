@@ -11,25 +11,6 @@ from . import config
 from . import data
 
 
-class ProgramsListModel(QAbstractListModel):
-
-    def rowCount(self, parent=None, *args, **kwargs):
-        if parent.isValid():
-            return 0
-        else:
-            return len(self.entries)
-
-    def roleNames(self):
-        return {0: QByteArray(b"icon")}
-
-    def data(self, model_index: QModelIndex, role=None):
-        return self.entries[model_index.row()]['icon']
-
-    def __init__(self, entries):
-        super().__init__()
-        self.entries = entries
-
-
 class IconController(QObject):
     def __init__(self, command):
         super().__init__()
@@ -65,7 +46,7 @@ def start():
     model = QStringListModel()
     strings = []
     for program in json_data:
-        strings.append(program['icon'])
+        strings.append(user_config_folder_path + "/icons/" + program['icon'])
 
     # Setting the list of string containing paths to .svg files
     model.setStringList(strings)
