@@ -1,4 +1,4 @@
-from enum import Enum, IntEnum
+from enum import IntEnum
 
 from PyQt5 import QtQuick, QtCore, QtQml
 from PyQt5.QtCore import *

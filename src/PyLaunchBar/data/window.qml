@@ -3,6 +3,7 @@ import QtQuick.Window 2.15
 import QtGraphicalEffects 1.0
 
 Window {
+    title: "PyLaunchBar"
     visible : true
     color: "transparent"
     flags: Qt.X11BypassWindowManagerHint | Qt.NoDropShadowWindowHint
