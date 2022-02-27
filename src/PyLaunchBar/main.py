@@ -21,13 +21,23 @@ class IconController(QObject):
         os.system(self.command)
 
 
-class IconsListModel(QStringListModel):
+class IconsListModel(QAbstractListModel):
 
-    def __init__(self, *__args):
-        super().__init__(*__args)
+    def __init__(self, entries):
+        super().__init__()
+        self.entries = entries
 
     def roleNames(self):
         return {0: QByteArray(b"icon")}
+
+    def rowCount(self, parent=None, *args, **kwargs):
+        if parent.isValid():
+            return 0
+        else:
+            return len(self.entries)
+
+    def data(self, model_index: QModelIndex, role=None):
+        return self.entries[model_index.row()]['icon']
 
 
 def start():
@@ -52,15 +62,7 @@ def start():
         json_data = json.load(file)
 
     # Creating the model for the ListView of icons
-    model = IconsListModel()
-    strings = []
-    for program in json_data:
-        strings.append(user_config_folder_path + "icons/" + program['icon'])
-
-    print(strings)
-
-    # Setting the list of string containing paths to .svg files
-    model.setStringList(strings)
+    model = IconsListModel(json_data)
 
     # Setting QStringListModel() has context property
     view.rootContext().setContextProperty("icons_model", model)
