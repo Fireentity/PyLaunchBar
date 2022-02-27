@@ -67,7 +67,7 @@ def start():
         json_data = json.load(file)
 
     # Creating the model for the ListView of icons
-    model = IconsListModel(config_folder_path, json_data)
+    model = IconsListModel(user_config_folder_path, json_data)
 
     # Setting QStringListModel() has context property
     view.rootContext().setContextProperty("icons_model", model)
