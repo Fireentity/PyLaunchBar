@@ -28,13 +28,12 @@ Window {
         ListView {
             height: parent.height
             width: parent.width
-            cacheBuffer: 10
             model: icons_model
             orientation: ListView.Horizontal
 
             delegate: Component {
-                Layout.AlignHCenter: true
                 Image {
+                    Layout.AlignHCenter: true
                     sourceSize.height: 22
                     source: model.icon
                 }
