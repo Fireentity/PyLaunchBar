@@ -15,7 +15,7 @@ from . import data
 
 class IconController(QObject):
 
-    @pyqtSlot()
+    @pyqtSlot(str)
     def on_click(self, command):
         os.system(command)
 
