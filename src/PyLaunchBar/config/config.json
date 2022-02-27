@@ -1,0 +1,22 @@
+[
+    {
+      "command":"telegram",
+      "icon": "./icons/telegram.svg"
+    },
+    {
+      "command":"firefox",
+      "icon": "./icons/firefox.svg"
+    },
+    {
+      "command":"pycharm-community",
+      "icon": "./icons/pycharm.svg"
+    },
+    {
+      "command":"intellij-idea-ultimate",
+      "icon": "./icons/intellij.svg"
+    },
+    {
+      "command":"terminal",
+      "icon": "./icons/terminal.svg"
+    }
+]
