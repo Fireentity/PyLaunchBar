@@ -42,8 +42,6 @@ class IconsListModel(QAbstractListModel):
             return len(self.entries)
 
     def data(self, model_index: QModelIndex, role=None):
-        print(role)
-        print(Roles.ICON.value)
         if role == Roles.ICON:
             return self.config_folder_path + "/" + self.entries[model_index.row()]['icon']
 
