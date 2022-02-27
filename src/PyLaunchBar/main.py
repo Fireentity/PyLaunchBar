@@ -21,6 +21,15 @@ class IconController(QObject):
         os.system(self.command)
 
 
+class IconsListModel(QStringListModel):
+
+    def __init__(self, *__args):
+        super().__init__(*__args)
+
+    def roleNames(self):
+        return {0: QByteArray(b"icon")}
+
+
 def start():
     app = QApplication([])
     view = QQmlApplicationEngine()
@@ -43,7 +52,7 @@ def start():
         json_data = json.load(file)
 
     # Creating the model for the ListView of icons
-    model = QStringListModel()
+    model = IconsListModel()
     strings = []
     for program in json_data:
         strings.append(user_config_folder_path + "icons/" + program['icon'])
