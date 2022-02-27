@@ -35,15 +35,9 @@ Window {
             delegate: Component {
                 Image {
                     sourceSize.height: 22
-                    source: model.source
+                    source: icons_model.source
                 }
             }
-        }
-
-        Row {
-            anchors.centerIn: parent
-            objectName: "row"
-            spacing: 20
         }
     }
 }

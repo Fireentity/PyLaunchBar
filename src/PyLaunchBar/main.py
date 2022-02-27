@@ -61,9 +61,6 @@ def start():
     with open(user_config_file_path, 'r') as file:
         json_data = json.load(file)
 
-    context = view.rootContext()
-    root = view.rootObjects()[0].findChild(QObject, "row")
-
     # Creating the model for the ListView of icons
     model = QStringListModel()
     strings = []
@@ -82,20 +79,5 @@ def start():
     # Loading file from an array of bytes
     view.loadData(QByteArray(bytearray(window_qml, "utf_8")))
 
-    width = 20
-    for program in json_data:
-        controller = IconController(program['command'])
-        current_context = QQmlContext(context)
-        current_context.setContextProperty("controller", controller)
-
-        component = QQmlComponent(view)
-        component.loadUrl(QUrl().fromLocalFile("icon.qml"))
-
-        item = component.create(current_context)
-        item.setParentItem(root)
-        item.setParent(root)
-        item.setProperty("source", QUrl.fromLocalFile(program['icon']))
-        width += item.property("width") + 20
-
-    view.rootObjects()[0].findChild(QObject, "background").setProperty("width", width)
+    view.rootObjects()[0].findChild(QObject, "background")
     app.exec()
