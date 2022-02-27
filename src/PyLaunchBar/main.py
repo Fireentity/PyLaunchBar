@@ -46,7 +46,7 @@ def start():
     model = QStringListModel()
     strings = []
     for program in json_data:
-        strings.append(user_config_folder_path + "/icons/" + program['icon'])
+        strings.append(user_config_folder_path + "icons/" + program['icon'])
 
     print(strings)
 
