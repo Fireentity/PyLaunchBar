@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='PyStatusBar',
+    name='PyLaunchBar',
     version='1.0.0',
     packages=find_packages("src"),
     package_dir={"": "src"},
     package_data={
-        "PyStatusBar": ["config/*.json", "data/*.qml"]
+        "PyLaunchBar": ["config/*.json", "data/*.qml"]
     },
     install_requires=["PyQt5;python_version<'5.15.6'"],
     python_requires=">=3.8",
