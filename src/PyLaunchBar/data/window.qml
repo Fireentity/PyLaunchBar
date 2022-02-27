@@ -27,6 +27,7 @@ Window {
 
         ListView {
             height: parent.height
+            width: parent.width
             cacheBuffer: 10
             model: icons_model
             orientation: ListView.Horizontal
