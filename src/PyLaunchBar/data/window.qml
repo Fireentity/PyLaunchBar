@@ -13,7 +13,7 @@ Window {
     Rectangle {
         objectName: "background"
         anchors.centerIn: parent
-        width: 500
+        width: list_view.width+20*2
         height: 40
         color: "#d8dee9"
         radius: 5
@@ -26,9 +26,11 @@ Window {
         }
 
         ListView {
+            anchors.centerIn: parent
+            id: list_view
             spacing: 20
             height: parent.height
-            width: parent.width
+            height: MyModel.items.length * 22 + (MyModel.items.length-1)*20
             model: icons_model
             orientation: ListView.Horizontal
 
