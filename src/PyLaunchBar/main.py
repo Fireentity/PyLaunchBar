@@ -29,7 +29,7 @@ class IconsListModel(QAbstractListModel):
         self.config_folder_path = config_folder_path
 
     def roleNames(self):
-        return {0: QByteArray(b"icon")}
+        return {0: QByteArray(b"icon"), 1: QByteArray(b"command")}
 
     def rowCount(self, parent=None, *args, **kwargs):
         if parent.isValid():
@@ -38,6 +38,7 @@ class IconsListModel(QAbstractListModel):
             return len(self.entries)
 
     def data(self, model_index: QModelIndex, role=None):
+        print(role)
         return self.config_folder_path + "/" + self.entries[model_index.row()]['icon']
 
 

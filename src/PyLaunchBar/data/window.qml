@@ -13,7 +13,7 @@ Window {
     Rectangle {
         objectName: "background"
         anchors.centerIn: parent
-        width: list_view.width+20*2
+        width: list_view.width+9*2
         height: 40
         color: "#d8dee9"
         radius: 5
@@ -39,6 +39,12 @@ Window {
                     anchors.verticalCenter: parent.verticalCenter
                     sourceSize.height: 22
                     source: model.icon
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            icon_controller.on_click(command)
+                        }
+                    }
                 }
             }
         }
